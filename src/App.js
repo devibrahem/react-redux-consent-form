@@ -4,6 +4,8 @@ import GiveConsent from "./components/GiveConsent";
 import CollectedConsent from "./components/CollectedConsent";
 import { Breadcrumbs } from "@material-ui/core";
 
+// logic for the active link
+
 const NavLink = (props) => (
   <Link
     {...props}

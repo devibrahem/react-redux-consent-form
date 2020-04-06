@@ -8,19 +8,32 @@ import {
   Container,
 } from "@material-ui/core";
 import { connect } from "react-redux";
-import addConsent from "../actionCreators/addConsent";
 import { navigate } from "@reach/router";
-
-function GiveConsent({ addConsent }) {
+import { addConsent } from "../actionCreators/addConsent";
+import * as API from "../api/api";
+export function GiveConsent({ addConsent }) {
+  //initializing the data to be sent to the redux and the mockdata
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [consent, setConsent] = useState([]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    addConsent({ name, email, consent });
+
+    const newConsent = { name, email, consent };
+    //making a post redux, adding the the data to redux logging any errors and then redirect to the consents page
+
+    API.postData(newConsent)
+      .then((res) => {
+        addConsent(newConsent);
+        console.log("ssucess", res);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
     navigate("/consents");
   };
-
+  // simple logic for adding and removing the checked value of the check boxes
   const handleCheckBox = (e) => {
     if (e.target.checked === true) {
       setConsent([...consent, e.target.value]);
@@ -38,30 +51,30 @@ function GiveConsent({ addConsent }) {
               required
               type="text"
               label="Name"
-              id="name"
+              name="name"
             />
             <TextField
               required
               type="email"
               label="Email"
-              id="email"
+              name="email"
               onChange={(e) => setEmail(e.target.value)}
             />
             <p>I agree to:</p>
             <FormControlLabel
-              control={<Checkbox name="newsletter" />}
+              control={<Checkbox type="checkbox" name="newsletter" />}
               label="Recieve newsletter"
               value="Recieve newsletter"
               onChange={handleCheckBox}
             />
             <FormControlLabel
-              control={<Checkbox name="ads" />}
+              control={<Checkbox type="checkbox" name="ads" />}
               label="Be shown targeted ads"
               value="Be shown targeted ads"
               onChange={handleCheckBox}
             />
             <FormControlLabel
-              control={<Checkbox name="statistics" />}
+              control={<Checkbox type="checkbox" name="statistics" />}
               label="Contribute to anonymous visit statistics"
               value="Contribute to anonymous visit statistics"
               onChange={handleCheckBox}

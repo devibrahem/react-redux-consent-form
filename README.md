@@ -1,68 +1,23 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Give Consents Form App Overview
 
-## Available Scripts
+In some specific cases, companies need to collect consent from consumers before using their data. For instance, website visitors might need to explicitly consent to receive email newsletters through a form before a company can send emails to those visitors.
 
-In the project directory, you can run:
+this is the simplest possible consent collection and management application where a user can enter its information and agree to a list of data processing.
 
-### `yarn start`
+### Installation and Startup
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+first start by running `yarn` in the root directory or `npm install` and that should get all the dependencies ready for you
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- to run the app `npm start`
+- to run the app with mock data `npm run start:mockdata`
+- you can also generate some dummy data using `npm run generate`
+- running the the json-server `npm run mockdata`
 
-### `yarn test`
+### About the App
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+startin the app should give you two links Give consent and collected consents you can either start by navigating to collected cosents where you can find a button labeled FETCH FAKE DATA that should give you all the data of consents in the mock database
+or you can go ahead in the Give consent page where you are welcomed with a form to fill your data and sumbit to the mockdata which is gonna redirect you to the collected consents page
 
-### `yarn build`
+### Tech used in the app
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+this app is using the React stack with Redux implemented to manage the data across the app with the Material-UI library for better visuals and the mocked data is handled with the json-server that gets the data generated using the json-schema-faker
